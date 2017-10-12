@@ -1,7 +1,8 @@
+
 function makeItShort(){
 
   var urlValue = document.getElementById('url-field-short').value;
-  axios.post('http://localhost:8000/short', {
+  axios.post('http://localhost/short', {
     url: urlValue
   })
   .then(function (response) {
@@ -23,7 +24,7 @@ function makeItShort(){
 function makeItLong(){
 
   var urlValue = document.getElementById('url-field-long').value;
-  axios.post('http://localhost:8000/long', {
+  axios.post('http://localhost/long', {
     url: urlValue
   })
   .then(function (response) {
