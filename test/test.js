@@ -10,9 +10,11 @@ var expect = require('chai').expect,
 
     redis = require('redis'),
 
+   db  = require('../config/db'),
+
     client;
 
-client = redis.createClient();
+client = redis.createClient(db.port, db.host);
 
 // Server tasks
 
@@ -24,7 +26,7 @@ describe('server', function () {
     before(function (done) {
 
         console.log('Starting the server');
-        //client.flushdb();
+        client.flushdb();
 
         done();
 
