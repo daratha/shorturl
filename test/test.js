@@ -24,7 +24,7 @@ describe('server', function () {
     before(function (done) {
 
         console.log('Starting the server');
-        client.flushdb();
+        //client.flushdb();
 
         done();
 
