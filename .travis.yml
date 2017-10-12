@@ -1,0 +1,36 @@
+language: node_js
+node_js:
+  - "7.10.0"
+  
+sudo: required
+
+env:
+  DOCKER_COMPOSE_VERSION: 1.8.0
+
+before_install:
+ - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+ - chmod +x docker-compose
+ - sudo mv docker-compose /usr/local/bin
+ - docker-compose -f docker-compose.test.yml -p ci build
+
+script:
+ - docker-compose -f docker-compose.test.yml up -d
+ - docker logs -f registrationservice_sut_1
+ - docker wait registrationservice_sut_1
+
+services:
+  - docker
+
+branches:
+  only:
+    - master
+matrix:
+  fast_finish: true 
+ 
+after_success:
+  - docker-compose down
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker tag shorturl_node1 daratha/shorturl:latest;
+    docker push daratha/shorturl;
+    fi

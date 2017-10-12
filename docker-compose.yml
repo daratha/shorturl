@@ -1,0 +1,23 @@
+nginx:
+    image: daratha/registrationservice_nginx
+    links:
+        - node1:node1
+        - node2:node2
+    ports:
+        - "80:80"
+node1:
+    image: daratha/registrationservice
+    links:
+        - redis
+    ports:
+        - "1337"
+node2:
+    image: daratha/registrationservice
+    links:
+        - redis
+    ports:
+        - "1337"
+redis:
+    image: daratha/registrationservice_redis
+    ports:
+        - "6379:6379"
