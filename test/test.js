@@ -31,7 +31,8 @@ describe('server', function () {
         var longUrl = 'https://www.nintex.com/blog/5-ways-to-save-20-minutes-a-day-with-workflow-processes/';
         it('should return a url which contains the base URL', function (done) {
 
-            request.post({ url: 'http://localhost:8000/short',form : {url : longUrl} }, 
+            //var temUlr = config.base_url+"/short";
+            request.post({ url: config.base_url+"short", form : {url : longUrl} }, 
             
             function (error, response, body) {
                 var shortUrl = JSON.parse(body).shortUrl;
@@ -44,7 +45,7 @@ describe('server', function () {
                     describe('Test the /long route', function () {
                         it('should return a url which contains the base URL', function (done) {
 
-                            request.post({ url: 'http://localhost:8000/long',form : {url : shortUrl} }, function (error, response, body) {
+                            request.post({ url: config.base_url+'long',form : {url : shortUrl} }, function (error, response, body) {
 
                                 expect(body).to.include(longUrl);
                                 expect(response.statusCode).to.equal(200);
@@ -79,7 +80,7 @@ describe('server', function () {
                         var longUrl = 'https://www.nintex.com/blog/5-ways-to-save-20-minutes-a-day-with-workflow-processes/';
                         it('should return a url which contains the base URL', function (done) {
 
-                            request.post({ url: 'http://localhost:8000/short',form : {url : longUrl} }, 
+                            request.post({ url: config.base_url+'short',form : {url : longUrl} }, 
                             
                             function (error, response, body) {
                                 var shortUrl = JSON.parse(body).shortUrl;
