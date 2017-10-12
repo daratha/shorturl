@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title></title>
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="site-wrapper">
+
+    <div class="site-wrapper-inner">
+
+      <div class="main-container">
+
+        <div class="inner cover">
+
+          <div class="row top-buffer">
+
+            <div class="col-lg-12">
+              <div class="input-group input-group-lg">
+                <input id="url-field-short" type="text" class="form-control" placeholder="Paste a URL...">
+                <span class="input-group-btn">
+                  <button class="btn btn-short" type="button" onclick="makeItShort()">MAKE IT SHORT</button>
+                </span>
+              </div>
+            </div>
+
+            <div  class="col-lg-12">
+              <div id="link-short"></div>
+            </div>
+
+            
+
+          </div>
+          <div class="row top-buffer">
+                <div class="col-lg-12">
+                    <div class="input-group input-group-lg">
+                        <input id="url-field-long" type="text" class="form-control" placeholder="Paste a URL...">
+                        <span class="input-group-btn">
+                        <button class="btn btn-short" type="button" onclick="makeItLong()">GIVE ME THE ORIGINAL</button>
+                        </span>
+                    </div>
+                </div>
+
+                <div  class="col-lg-12">
+                    <div id="link-long"></div>
+                </div>
+          </div>     
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+    
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="scripts/request_handler.js"></script>
+
+</body>
+</html>
