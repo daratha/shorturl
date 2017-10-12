@@ -1,48 +1,29 @@
 "use strict";
 
 var expect = require('chai').expect,
-
     request = require('request'),
-
     config = require('../config/config'),
-
     app = require('../server'),
-
     redis = require('redis'),
-
    db  = require('../config/db'),
 
     client;
 
 client = redis.createClient(db.port, db.host);
 
-// Server tasks
-
 describe('server', function () {
-
-    // Beforehand, start the server
 
     var value = 0;
     before(function (done) {
-
         console.log('Starting the server');
         client.flushdb();
-
         done();
-
     });
-
 
     after(function (done) {
-
         console.log('Stopping the server');
-
-        
-
         done();
-
     });
-
     
 
     describe('Test /short route', function () {
@@ -58,8 +39,7 @@ describe('server', function () {
                 expect(body).to.include(config.base_url);
                 expect(response.statusCode).to.equal(200);
 
-                done();
-
+                
                     //start of test for the long URL
                     describe('Test the /long route', function () {
                         it('should return a url which contains the base URL', function (done) {
@@ -114,22 +94,14 @@ describe('server', function () {
 
                     });
                     //end of test for the redirect
+                    done();
 
                     
             });
 
         });
-        
-
-    });
-
-
-
-
-    
-
-
-    
+    });   
+  
 
 
 });
