@@ -5,4 +5,4 @@ MAINTAINER DARATHA GALKISSA
 # Configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY ./views /var/www
+COPY ../app/views /var/www
