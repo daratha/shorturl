@@ -34,4 +34,6 @@ after_success:
     docker tag shorturl_node1 daratha/shorturl:latest;
     docker tag shorturl_nginx_1 daratha/shorturl_nginx:latest;
     docker push daratha/shorturl;
+    docker push daratha/shorturl_nginx;
+
     fi
