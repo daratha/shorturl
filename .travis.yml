@@ -32,5 +32,6 @@ after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
     docker tag shorturl_node1 daratha/shorturl:latest;
+    docker tag shorturl_nginx_1 daratha/shorturl_nginx:latest;
     docker push daratha/shorturl;
     fi
