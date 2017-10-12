@@ -1,23 +1,25 @@
 nginx:
-    image: daratha/shorturl_nginx
+    build: ./nginx
     links:
         - node1:node1
         - node2:node2
+        - node3:node3
     ports:
         - "80:80"
 node1:
-    image: daratha/shorturl
-    links:
-        - redis
-    ports:
-        - "1337"    
-node2:
-    image: daratha/shorturl
+    build: .
     links:
         - redis
     ports:
         - "1337"
+node2:
+    build: .
+    links:
+        - redis
+    ports:
+        - "1337"
+
 redis:
-    image: daratha/shorturl_redis
+    build: ./redis
     ports:
         - "6379:6379"
