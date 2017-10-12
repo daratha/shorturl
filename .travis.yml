@@ -15,8 +15,8 @@ before_install:
 
 script:
  - docker-compose -f docker-compose.test.yml up -d
- - docker logs -f registrationservice_sut_1
- - docker wait registrationservice_sut_1
+ - docker logs -f shorturl_sut_1
+ - docker wait shorturl_sut_1
 
 services:
   - docker
