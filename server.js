@@ -1,15 +1,21 @@
 const express        = require('express');
 const redis          = require('redis');
 const bodyParser     = require('body-parser');
-const db             = require('./config/db');
-var config           = require('./config/config')
+var env = process.env.NODE_ENV || 'production';
 
-var redisClient = redis.createClient(db.port, db.host);
+console.log("Environment  :"+env);
+var config = require('./config/config')[env];
+
+var redisClient = redis.createClient(config.database.port, config.database.host);
     
 const app            = express();
 
 
-const port = config.server_port;
+const port = config.server.server_port;
+
+console.log(app.env);
+console.log(process.env.NODE_ENV);
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

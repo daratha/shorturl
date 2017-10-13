@@ -2,14 +2,14 @@
 
 var expect = require('chai').expect,
     request = require('request'),
-    config = require('../config/config'),
     app = require('../server'),
     redis = require('redis'),
-   db  = require('../config/db'),
-
     client;
 
-client = redis.createClient(db.port, db.host);
+var env = process.env.NODE_ENV || 'development';
+var config = require('../config/config')[env];
+
+client = redis.createClient(config.database.port, config.database.host);
 
 describe('server', function () {
 
@@ -31,7 +31,8 @@ describe('server', function () {
         var longUrl = 'https://www.nintex.com/blog/5-ways-to-save-20-minutes-a-day-with-workflow-processes/';
         it('should return a url which contains the base URL', function (done) {
 
-            //var temUlr = config.base_url+"/short";
+            var tempUlr = config.base_url+"short";
+            console.log("tempUlr  :: "+tempUlr);
             request.post({ url: config.base_url+"short", form : {url : longUrl} }, 
             
             function (error, response, body) {

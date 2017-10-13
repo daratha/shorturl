@@ -1,5 +1,7 @@
 var base58 = require('../encode/encoder');
-var config = require('../../config/config');
+
+var env = process.env.NODE_ENV || 'development';
+var config = require('../../config/config')[env];
 
 module.exports = function(app, db) {
     app.post('/short', (req, res) => {
