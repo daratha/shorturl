@@ -1,4 +1,4 @@
-var baseUrl = 'ec2-52-14-29-158.us-east-2.compute.amazonaws.com';
+var baseUrl = 'http://ec2-52-14-29-158.us-east-2.compute.amazonaws.com';
 
 function makeItShort(){
 
