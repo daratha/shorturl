@@ -1,7 +1,7 @@
 const express        = require('express');
 const redis          = require('redis');
 const bodyParser     = require('body-parser');
-var env = process.env.NODE_ENV || 'production';
+var env = process.env.NODE_ENV || 'development';
 
 console.log("Environment  :"+env);
 var config = require('./config/config')[env];
