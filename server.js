@@ -8,9 +8,7 @@ var config = require('./config/config')[env];
 
 var redisClient = redis.createClient(config.database.port, config.database.host);
     
-const app            = express();
-
-
+const app  = express();
 const port = config.server.server_port;
 
 console.log(app.env);
@@ -33,7 +31,8 @@ redisClient.on('connect', function() {
 require('./app/routes')(app, redisClient);
 
 var server = app.listen(port, () => {
-  console.log('We are live on ' + port);
+  console.log('We are live on : ' + port);
+  console.log('We are live on URL : ' + config.base_url);
 });
 
 module.exports = server;
