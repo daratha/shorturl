@@ -1,7 +1,9 @@
+var baseUrl = 'ec2-52-14-29-158.us-east-2.compute.amazonaws.com';
+
 function makeItShort(){
 
   var urlValue = document.getElementById('url-field-short').value;
-  axios.post('http://localhost:8000/short', {
+  axios.post(baseUrl+'/short', {
     url: urlValue
   })
   .then(function (response) {
@@ -23,7 +25,7 @@ function makeItShort(){
 function makeItLong(){
 
   var urlValue = document.getElementById('url-field-long').value;
-  axios.post('http://localhost:8000/long', {
+  axios.post(baseUrl+'/long', {
     url: urlValue
   })
   .then(function (response) {
