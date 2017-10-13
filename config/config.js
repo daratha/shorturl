@@ -4,7 +4,7 @@ development: {
     base_url: 'http://localhost:1337/',
     //redis connection settings
     database: {
-        host:   'localhost',
+        host:   'redis',
         port:   '6379',
         db:     'site_dev'
     },
