@@ -4,7 +4,7 @@
   "description": "shortening the longer urls",
   "main": "server.js",
   "scripts": {
-    "test": "nyc --report=html mocha --exit --timeout 10000" ,
+    "test": "NODE_ENV=development nyc --report=html mocha --exit --timeout 10000" ,
     "dev": "nodemon server.js"
   },
   "author": "Daratha Galkissa",

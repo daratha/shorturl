@@ -1,6 +1,6 @@
 var base58 = require('../encode/encoder');
 
-var env = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV || 'production';
 var config = require('../../config/config')[env];
 
 module.exports = function(app, db) {
